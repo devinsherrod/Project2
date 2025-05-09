@@ -22,6 +22,9 @@ class MainWindow(QMainWindow):
         self.ui.Feedback_label.setStyleSheet('font-size: 20pt;')
 
     def update_boxes(self):
+        """
+        shows and hides boxes based on how many scores they have
+        """
         try:
             num = int(self.ui.Num_of_students_label_2.text())
             for x, (box, label) in enumerate(self.score_boxes):
@@ -34,6 +37,9 @@ class MainWindow(QMainWindow):
                 label.setVisible(False)
 
     def submit_scores(self):
+        """
+        Handles the process when the submit button is clicked
+        """
         name = self.ui.StudentName_input.text().strip()
         attempts = self.ui.Num_of_students_label_2.text().strip()
         scores = [box.text() for box, _ in self.score_boxes]
@@ -48,6 +54,9 @@ class MainWindow(QMainWindow):
             self.clear_inputs()
 
     def clear_inputs(self):
+        """
+        Clears all the boxes from the user input that has been put in
+        """
         self.ui.StudentName_input.clear()
         self.ui.Num_of_students_label_2.clear()
         for box, _ in self.score_boxes:

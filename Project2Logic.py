@@ -6,6 +6,9 @@ class Scores:
         self.setup_file()
 
     def setup_file(self):
+        """
+        Creates the csv file
+        """
         try:
             with open(self.file, 'x', newline='') as file:
                 csv.writer(file).writerow(['Student Name', 'Score 1', 'Score 2', 'Score 3', 'Score 4',
@@ -15,6 +18,9 @@ class Scores:
             pass
 
     def save_scores(self, name, attempts, score_input):
+        """
+        Saves the scores of the students to the csv file
+        """
         if not name.strip():
             return 'Missing name', False
         if not attempts.isdigit() or int(attempts) not in {1, 2, 3, 4}:
